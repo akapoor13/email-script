@@ -11,9 +11,9 @@ username = email_creds['username']
 password = email_creds['password']
 from_addrs = email_creds['email']
 
-to_addrs = []
-email_msg = ""
-email_subject = ""
+to_addrs = ["aayushkapoor.bhms@gmail.com"]
+email_msg = "DUMMY"
+email_subject = "TEST"
 
 
 def msg_formatter(to_addrs, msg, subject):
@@ -46,7 +46,8 @@ def connection(server_name, port, username, password):
 
 
 server = connection(server, port, username, password)
-msg = msg_formatter(to_addrs, email_msg, email_subject)
-server.sendmail(from_addrs, to_addrs, msg)
+for i in range(100):
+    msg = msg_formatter(to_addrs, email_msg, email_subject)
+    server.sendmail(from_addrs, to_addrs, msg)
 server.quit()
 print("Email message sent successfully")
